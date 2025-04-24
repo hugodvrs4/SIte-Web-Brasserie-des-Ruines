@@ -1,0 +1,11 @@
+# Fichiers inutiles à ignorer
+*.zip
+*.rar
+*.exe
+*.pyc
+*.log
+node_modules/
+.vscode/
+.DS_Store
+__pycache__/
+sauvegardes/
