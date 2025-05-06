@@ -397,3 +397,73 @@ footer a {
         align-self: flex-end;
     }
 }
+/* ===== Styles pour la page Galerie ===== */
+.galerie {
+  width: 100%;
+  background-color: #ebd7b7;
+  padding: 40px 20px;
+}
+
+.galerie h1 {
+  font-size: 2.5em;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.galerie-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.galerie-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.galerie-item img {
+  width: 400px;
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+
+.galerie-item h2 {
+  width: 100%;
+  text-align: center;
+  color: #1f1b14;
+  margin: 30px 0;
+  font-size: 1.4em;
+  text-transform: uppercase;
+}
+
+/* ===== Version mobile ===== */
+@media screen and (max-width: 768px) {
+  .galerie {
+      padding: 20px 10px;
+  }
+
+  .galerie h1 {
+      font-size: 2em;
+      margin-bottom: 30px;
+  }
+
+  .galerie-item {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .galerie-item img {
+      width: 100%;
+      max-width: 90vw;
+  }
+
+  .galerie-item h2 {
+      font-size: 1.1em;
+      margin: 20px 0;
+  }
+}
