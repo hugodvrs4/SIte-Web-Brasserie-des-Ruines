@@ -5,11 +5,19 @@
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 body {
   font-family: 'Cinzel', 'Segoe UI', serif;
   background-color: #ebd7b8;
   color: #2e2e2e;
   line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 img {
@@ -18,6 +26,11 @@ img {
   display: block;
 }
 
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
 
 /* ======= Header ======= */
 header {
@@ -227,6 +240,8 @@ tr:last-child td {
   border-bottom: none;
 }
 
+
+
 /* ======= Titres ======= */
 h1 {
   margin-bottom: 5px;
@@ -243,11 +258,13 @@ h5 {
 
 /* ======= Footer ======= */
 footer {
+  margin-top: auto;
   background-color: #1f1b14;
   color: #f5f0e6;
   text-align: center;
   padding: 20px;
   font-size: 0.9em;
+  width: 100%;
 }
 
 footer a {
@@ -290,9 +307,31 @@ footer a {
   padding: 20px 30px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  flex: 1 1 250px;
+  flex: 1 1 auto;
   max-width: 350px;
+  min-height: 100px; /* Ajoute une hauteur mini au lieu de gonfler */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centrer verticalement */
 }
+
+/* Correction mobile */
+@media (max-width: 768px) {
+  .carte {
+    padding: 10px 15px;
+    min-height: auto; /* On retire la hauteur minimale pour mobile */
+  }
+
+  .carte h3 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+
+  .carte p, .carte a {
+    font-size: 0.9rem;
+  }
+}
+
 
 .carte h3 {
   margin-bottom: 10px;
@@ -317,9 +356,9 @@ footer a {
 
 /* ===== Styles pour la page Menu ===== */
 .menu {
-    background-color: #fdf7ed;
+    flex: 1;
+    background-color: #f5f0e6; /* Fond blanc */
     padding: 60px 40px;
-    min-height: 100vh;
 }
 
 .menu h1 {
@@ -331,9 +370,10 @@ footer a {
 }
 
 .categorie {
-    max-width: 1400px;
+    width: 100%;
+    max-width: none;
     margin: 0 auto 60px auto;
-    padding: 0 20px;
+    padding: 0 150px;
 }
 
 .categorie h2 {
@@ -360,12 +400,13 @@ footer a {
 }
 
 .categorie li span:first-child {
-    flex: 1;
+    flex: 3;
     text-align: left;
     padding-right: 20px;
 }
 
 .categorie li span:last-child {
+    flex: 1 ;
     font-weight: bold;
     color: #1f1b14;
     min-width: 80px;
@@ -384,7 +425,7 @@ footer a {
     }
 
     .categorie li {
-        flex-direction: column;
+        flex-direction: row; /* Garder en ligne sur mobile */
         font-size: 1.1em;
         padding: 10px 0;
     }
@@ -395,6 +436,8 @@ footer a {
 
     .categorie li span:last-child {
         align-self: flex-end;
+        text-align: right;
+        margin-left: 20px;
     }
 }
 /* ===== Styles pour la page Galerie ===== */
@@ -465,5 +508,113 @@ footer a {
   .galerie-item h2 {
       font-size: 1.1em;
       margin: 20px 0;
+  }
+}
+
+.video-facebook {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #ebd7b7;
+}
+
+.video-facebook h2 {
+  margin-bottom: 20px;
+  color: #1f1b14;
+  font-size: 1.8em;
+}
+
+/* ===== Styles pour la page Événements ===== */
+.evenements {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.evenements h1 {
+    font-size: 2.5em;
+    color: #1f1b14;
+    margin-bottom: 40px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.evenements-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.evenement-item {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.evenement-item img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Version mobile */
+@media screen and (max-width: 768px) {
+    .evenements {
+        padding: 20px 10px;
+    }
+
+    .evenements h1 {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+
+    .evenement-item img {
+        max-height: 300px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+  .carte {
+    padding: 10px 15px !important;
+    margin-bottom: 10px !important;
+    min-height: unset !important;
+    height: auto !important;
+    line-height: 1.2 !important;
+  }
+
+  .carte * {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.2 !important;
+  }
+
+  .carte h3 {
+    font-size: 1em !important;
+    margin-bottom: 6px !important;
+  }
+
+  .carte p, .carte a {
+    font-size: 0.9em !important;
+    display: inline !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .carte {
+    padding: 10px 20px; /* Réduction du padding vertical */
+  }
+
+  .carte h3 {
+    font-size: 1em;
+    margin-bottom: 5px;
+  }
+
+  .carte p, .carte a {
+    font-size: 0.9em;
   }
 }
