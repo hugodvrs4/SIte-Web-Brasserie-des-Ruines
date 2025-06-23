@@ -32,23 +32,71 @@
             <div class="galerie-container">
                 <div class="galerie-item">
                     <h2>Un intérieur chaleureux et convivial</h2>
-                    <img src="images/intérieur1.jpg" alt="Première photo de l'intérieure" class="photo">
-                    <img src="images/intérieur2.jpg" alt="Photo de la brasserie 2" class="photo">
-                    <img src="images/intérieur3.jpg" alt="Photo de la brasserie 3" class="photo">
+                    <div class="slider">
+                        <button class="prev">&#10094;</button>
+                        <img src="images/intérieur1.jpg" alt="Intérieur" class="active">
+                        <img src="images/intérieur2.jpg" alt="Intérieur 2">
+                        <img src="images/intérieur3.jpg" alt="Intérieur 3">
+                        <button class="next">&#10095;</button>
+                    </div>
                 </div>
+
                 <div class="galerie-item">
                     <h2>Une terrasse spacieuse et accueillante</h2>
-                    <img src="images/exterieur1.jpg" alt="Photo de la brasserie 4" class="photo">
+                    <div class="slider">
+                        <button class="prev">&#10094;</button>
+                        <img src="images/exterieur1.jpg" alt="Terrasse" class="active">
+                        <button class="next">&#10095;</button>
+                    </div>
                 </div>
+
                 <div class="galerie-item">
                     <h2>Des plats savoureux et gourmands</h2>
-                    <img src="images/plat1.jpg" alt="Photo de la brasserie 4" class="photo">
-                    <img src="images/plat2.jpg" alt="Photo de la brasserie 4" class="photo">
+                    <div class="slider">
+                        <button class="prev">&#10094;</button>
+                        <img src="images/plat1.jpg" alt="Plat" class="active">
+                        <img src="images/plat2.jpg" alt="Plat 2">
+                        <button class="next">&#10095;</button>
+                    </div>
+                </div>
+
+                <div class="galerie-item">
+                    <h2>Des cocktails rafraîchissant</h2>
+                    <div class="slider">
+                        <button class="prev">&#10094;</button>
+                        <img src="images/Mojito_fraise.JPEG" alt="Mojito_fraise" class="active">
+                        <button class="next">&#10095;</button>
+                    </div>
                 </div>
         </section>
     </main>
     <footer>
         <p>&copy; 2025 La Brasserie des Ruines – Tous droits réservés</p>
     </footer>
+    <script>
+  const sliders = document.querySelectorAll('.slider');
+
+  sliders.forEach(slider => {
+    const images = slider.querySelectorAll('img');
+    let index = 0;
+
+    function showImage(i) {
+      images.forEach(img => img.classList.remove('active'));
+      images[i].classList.add('active');
+    }
+
+    showImage(index);
+
+    slider.querySelector('.next').addEventListener('click', () => {
+      index = (index + 1) % images.length;
+      showImage(index);
+    });
+
+    slider.querySelector('.prev').addEventListener('click', () => {
+      index = (index - 1 + images.length) % images.length;
+      showImage(index);
+    });
+  });
+</script>
 </body>
 </html>
